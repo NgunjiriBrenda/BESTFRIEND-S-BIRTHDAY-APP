@@ -25,7 +25,7 @@ particlesContainer.appendChild(particle)
 
 /* COUNTDOWN INTRO */
 
-let count = 3
+let count = 5
 const countdownElement = document.getElementById("countdown")
 const screen = document.getElementById("countdown-screen")
 
