@@ -8,132 +8,177 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-
 /* Fade animation */
-
 @keyframes fadeIn{
-from{opacity:0; transform:translateY(30px);}
-to{opacity:1; transform:translateY(0);}
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
 }
-
 .fade-in{
-animation:fadeIn 2s ease forwards;
+  animation:fadeIn 2s ease forwards;
 }
 
-
-
+/* Glow text */
 .glow{
-text-shadow:
-0 0 10px #ff69b4,
-0 0 20px #ff69b4,
-0 0 40px #ff69b4;
+  text-shadow:
+  0 0 10px #ff69b4,
+  0 0 20px #ff69b4,
+  0 0 40px #ff69b4;
 }
 
-
+/* Floating animation */
 @keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-20px)}
-100%{transform:translateY(0)}
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+  100%{transform:translateY(0)}
 }
-
 .float{
-animation:float 4s ease-in-out infinite;
+  animation:float 4s ease-in-out infinite;
 }
 
-
-
+/* Particle animation */
 .particle{
-position:absolute;
-width:4px;
-height:4px;
-background:pink;
-border-radius:50%;
-animation:particleMove linear infinite;
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:pink;
+  border-radius:50%;
+  animation:particleMove linear infinite;
 }
-
 @keyframes particleMove{
-from{transform:translateY(0); opacity:1}
-to{transform:translateY(-100vh); opacity:0}
+  from{transform:translateY(0); opacity:1}
+  to{transform:translateY(-100vh); opacity:0}
 }
 
-
+/* Countdown screen */
 #countdown-screen{
-position:fixed;
-inset:0;
-background:black;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:8rem;
-color:gold;
-z-index:50;
-transition:opacity 1s ease;
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:8rem;
+  color:gold;
+  z-index:50;
+  transition:opacity 1s ease;
 }
-
 </style>
 </head>
 
+<body class="text-yellow-300 relative overflow-x-hidden">
 
-<body class="text-yellow-300">
-
-
+<!-- Countdown Screen -->
 <div id="countdown-screen">
-<span id="countdown">5</span>
+  <span id="countdown">5</span>
 </div>
 
-
+<!-- Background Image -->
 <div class="fixed inset-0 -z-10">
-<img src="assets/bestie.jpeg"
-class="w-full h-full object-cover opacity-70 contrast-110">
-<div class="fixed inset-0 bg-black/30 -z-10"></div>
+  <img src="assets/bestie.jpeg" class="w-full h-full object-cover opacity-70 contrast-110">
+  <div class="fixed inset-0 bg-black/30 -z-10"></div>
 </div>
 
-
+<!-- Particles -->
 <div id="particles"></div>
 
-
+<!-- Landing Section -->
 <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 -mt-20">
+  <h1 class="text-5xl md:text-7xl font-bold mt-5 mb-12 glow text-pink-200">
+    The Birthday Queen 😝👑
+  </h1>
 
-
-<h1 class="text-5xl md:text-7xl font-bold mt-5 mb-12 glow text-pink-200">
-The Birthday Queen 😝👑
-</h1>
-
-<button onclick="scrollToSection()"
-class="mx-auto bg-gradient-to-r from-pink-400 to-pink-600 text-white px-10 py-4 rounded-full text-lg 
-font-semibold shadow-2xl hover:scale-110 hover:shadow-pink-500/50 transition duration-300">
-
-Enter Her Era 😝
-
-</button>
-
+  <button onclick="scrollToSection()"
+    class="mx-auto bg-gradient-to-r from-pink-400 to-pink-600 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-2xl hover:scale-110 hover:shadow-pink-500/50 transition duration-300">
+    Enter Her Era 😝
+  </button>
 </section>
 
+<!-- That Girl Section -->
+<section id="that-girl" class="min-h-screen bg-pink-50 flex flex-col items-center py-20 px-6">
+  <h2 class="text-4xl md:text-5xl font-bold text-pink-500 mb-16 text-center">Why You Are That Girl 💅</h2>
 
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Polaroid 1 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[-5deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie1.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">Certified Birthday Queen👑😝</p>
+    </div>
+
+    <!-- Polaroid 2 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[4deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie2.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">Forever a Baddiee ✨😝</p>
+    </div>
+
+    <!-- Polaroid 3 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[-3deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie3.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">My hotee hoteee Boo Boo ❤️😝</p>
+    </div> 
+
+    <!-- Polaroid 4 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[-3deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie4.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">Gorgeous inside and out😩😝</p>
+    </div> 
+
+    <!-- Polaroid 5 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[-3deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie5.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">Thankyou for being You🩷🎀</p>
+    </div> 
+
+    <!-- Polaroid 6 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[-3deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie6.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">My partner in Crime😩😝</p>
+    </div> 
+
+    <!-- Polaroid 7 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[-3deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie7.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">Kamata hiyo kiss💋❗️</p>
+    </div> 
+
+    <!-- Polaroid 8 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[-3deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie8.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">MY BESTFRIEND😝💗🎀</p>
+    </div> 
+
+    <!-- Polaroid 9 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[-3deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie10.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">YOU ARE THAT GIRL😩😝</p>
+    </div> 
+
+    <!-- Polaroid 10 -->
+    <div class="bg-white p-3 pb-6 shadow-xl rounded-md rotate-[-3deg] hover:rotate-0 hover:scale-110 transition duration-300">
+      <img src="assets/bestie11.jpeg" class="w-full h-56 object-cover rounded-sm">
+      <p class="text-center mt-3 text-sm font-medium">I LOVE YOU 🥹❤️</p>
+    </div> 
+  </div>
 </section>
 
+<div class="mt-20 text-center">
+    <a href="letter.html"
+       class="bg-gradient-to-r from-pink-400 to-pink-600 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-xl hover:scale-110 transition duration-300">
+       
+       Open Your Letter 💌
+       
+    </a>
+</div>
 
-
+<!-- Floating Emojis -->
 <div class="absolute top-10 left-10 text-3xl float">👑</div>
 <div class="absolute top-20 right-10 text-3xl float">✨</div>
 <div class="absolute top-1/2 left-5 text-3xl float">💖</div>
 <div class="absolute bottom-20 left-1/3 text-3xl float">🎉</div>
-
-
-
-
-
-
 <div class="absolute top-10 left-10 text-3xl float">🎂</div>
 <div class="absolute top-20 right-10 text-3xl float">🧁</div>
 <div class="absolute bottom-20 left-20 text-3xl float">🎂</div>
 <div class="absolute bottom-10 right-20 text-3xl float">🧁</div>
 
-
-
 <script src="./index.js"></script>
-
-
 </body>
 </html>
-
