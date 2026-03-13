@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Make A Wish</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+/* floating flowers */
+
+.flower{
+position:absolute;
+font-size:28px;
+animation:floatFlower 6s ease-in-out infinite;
+}
+
+@keyframes floatFlower{
+0%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+100%{transform:translateY(0)}
+}
+
+/* floating 21 numbers */
+
+.number21{
+position:absolute;
+font-size:35px;
+opacity:0.8;
+animation:float21 10s linear infinite;
+}
+
+@keyframes float21{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+/* confetti */
+
+.confetti{
+position:absolute;
+font-size:20px;
+animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(100vh) rotate(720deg);
+opacity:0;
+}
+}
+
+/* balloons */
+
+.balloon{
+position:absolute;
+font-size:40px;
+animation:floatUp 6s linear forwards;
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+/* floating memories */
+
+.memory{
+position:absolute;
+width:80px;
+height:80px;
+object-fit:cover;
+border-radius:10px;
+animation:memoryFloat 10s linear forwards;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+@keyframes memoryFloat{
+0%{
+transform:translateY(100vh) scale(0.8);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) scale(1);
+opacity:0;
+}
+}
+
+</style>
+
+</head>
+
+
+<body class="min-h-screen flex flex-col items-center justify-center text-center bg-pink-100 overflow-hidden px-6">
+
+<!-- Flowers -->
+
+<div class="flower top-10 left-10">🌸</div>
+<div class="flower top-20 right-20">🌹</div>
+<div class="flower bottom-20 left-16">🌸</div>
+<div class="flower bottom-10 right-10">🌹</div>
+
+
+<!-- Floating 21 -->
+
+<div class="number21 left-10">21✨</div>
+<div class="number21 left-1/3">21💖</div>
+<div class="number21 right-16">21🎉</div>
+
+
+<h1 class="text-4xl md:text-6xl font-bold text-pink-500 mb-10">
+Make A Wish Birthday Queen 👑
+</h1>
+
+
+<!-- CAKE -->
+
+<div id="cake" class="relative flex flex-col items-center animate-bounce">
+
+<!-- candles -->
+
+<div class="flex space-x-4 mb-1">
+
+<div class="candle flex flex-col items-center cursor-pointer">
+<div class="w-2 h-6 bg-pink-300 rounded-sm"></div>
+<div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+</div>
+
+<div class="candle flex flex-col items-center cursor-pointer">
+<div class="w-2 h-6 bg-pink-300 rounded-sm"></div>
+<div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+</div>
+
+<div class="candle flex flex-col items-center cursor-pointer">
+<div class="w-2 h-6 bg-pink-300 rounded-sm"></div>
+<div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+</div>
+
+</div>
+
+
+<!-- top layer -->
+
+<div class="relative w-40 sm:w-52 md:w-64 h-10 bg-pink-200 rounded-lg flex justify-center items-center">
+
+<div class="absolute -top-2 w-full h-4 bg-white rounded-lg"></div>
+
+<span class="text-pink-600 font-bold text-lg">
+21 ✨
+</span>
+
+</div>
+
+
+<!-- middle layer -->
+
+<div class="w-44 sm:w-56 md:w-72 h-12 bg-pink-300 rounded-lg -mt-2"></div>
+
+
+<!-- bottom layer -->
+
+<div class="w-48 sm:w-60 md:w-80 h-14 bg-pink-400 rounded-lg -mt-2"></div>
+
+</div>
+
+
+<p class="text-gray-700 mt-6 text-lg">
+Tap the candles to make your birthday wish ✨
+</p>
+
+
+<!-- FINAL MESSAGE -->
+
+<div id="finalMessage" class="hidden mt-10 text-2xl text-pink-600 font-semibold">
+
+HAPPY BIRTHDAY BESTFRIEND 😝💗🎀  
+<br><br>
+
+
+21 WITH NO KIDSSS YEAAAAAH 💅  
+
+<br><br>
+
+May this year bring you happiness, love and success.
+
+<br><br>
+
+I LOVE YOU SO MUCH 💖
+
+</div>
+
+<script>
+
+/* play music */
+
+document.body.addEventListener("click",()=>{
+document.getElementById("music").play()
+},{once:true})
+
+
+const candles = document.querySelectorAll(".candle")
+
+
+candles.forEach(candle => {
+
+candle.addEventListener("click", () => {
+
+candle.style.opacity="0"
+
+/* confetti */
+
+for(let i=0;i<40;i++){
+
+let confetti=document.createElement("div")
+confetti.className="confetti"
+confetti.innerHTML=["🎉","✨","💖","🎊"][Math.floor(Math.random()*4)]
+confetti.style.left=Math.random()*100+"vw"
+
+document.body.appendChild(confetti)
+
+setTimeout(()=>confetti.remove(),3000)
+
+}
+
+
+/* balloons */
+
+for(let i=0;i<12;i++){
+
+let balloon=document.createElement("div")
+balloon.className="balloon"
+balloon.innerHTML="🎈"
+balloon.style.left=Math.random()*100+"vw"
+balloon.style.bottom="-50px"
+
+document.body.appendChild(balloon)
+
+setTimeout(()=>balloon.remove(),6000)
+
+}
+
+
+/* floating memories */
+
+const memories=[
+"assets/bestie.jpeg",
+"assets/bestie1.jpeg",
+"assets/bestie2.jpeg",
+"assets/bestie3.jpeg",
+"assets/bestie4.jpeg"
+]
+
+for(let i=0;i<20;i++){
+
+let img=document.createElement("img")
+
+img.src=memories[Math.floor(Math.random()*memories.length)]
+
+img.className="memory"
+
+img.style.left=Math.random()*100+"vw"
+
+document.body.appendChild(img)
+
+setTimeout(()=>img.remove(),10000)
+
+}
+
+
+/* show message */
+
+document.getElementById("finalMessage").classList.remove("hidden")
+
+})
+
+})
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter To The Birthday Queen</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+/* Floating flowers */
+.flower{
+  position:absolute;
+  font-size:5vw; /* responsive size */
+  animation:floatFlower 6s ease-in-out infinite;
+  opacity:0.9;
+}
+
+@keyframes floatFlower{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-25px)}
+  100%{transform:translateY(0)}
+}
+
+/* Floating hearts on click */
+.heart{
+  position:absolute;
+  font-size:6vw; /* responsive size */
+  animation:floatUp 2s ease forwards;
+}
+
+@keyframes floatUp{
+  0%{
+    transform:translateY(0) scale(1);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-120px) scale(1.5);
+    opacity:0;
+  }
+}
+
+/* Paragraph reveal animation */
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Soft glowing background */
+@keyframes glow{
+  0%,100% { box-shadow: 0 0 15px #fcd5e5; }
+  50% { box-shadow: 0 0 30px #ffb6c1; }
+}
+
+#letter-card{
+  animation:glow 3s ease-in-out infinite alternate;
+}
+
+/* Mobile adjustments */
+@media(max-width:768px){
+  .flower { font-size:8vw; }
+  #letter-card {
+    padding: 4vw;
+    max-width:95%;
+  }
+  h1 { font-size:6vw; }
+  p { font-size:4.5vw; line-height:1.5; }
+}
+</style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-6 overflow-hidden bg-cover bg-center" style="background-image:url('assets/cute-bg.jpg');">
+
+<!-- Floating Flowers -->
+<div class="flower top-10 left-10">🌹</div>
+<div class="flower top-32 right-16">🌹</div>
+<div class="flower bottom-20 left-20">🌹</div>
+
+<div class="flower top-20 left-1/2">🌸</div>
+<div class="flower bottom-32 right-20">🌸</div>
+<div class="flower bottom-10 left-1/3">🌸</div>
+
+<!-- Letter Card -->
+<div id="letter-card" class="bg-pink-200 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-2xl text-center cursor-pointer">
+
+  <h1 class="text-3xl md:text-4xl font-bold text-pink-500 mb-5 reveal" style="animation-delay: 0.2s;">
+    A Letter To The Birthday Queen 💌
+  </h1>
+
+  <p class="text-gray-700 text-base leading-relaxed mb-3 font-semibold reveal" style="animation-delay: 0.4s;">
+    HAPPY BIRTHDAY TO MY BESTFRIEND 😝💗🎀
+  </p>
+
+  <p class="text-gray-700 text-base leading-relaxed mb-3 reveal" style="animation-delay: 0.6s;">
+    First of all… how are you getting older but still staying this gorgeous?? 😝 Please share the secret because it's honestly not fair 😩✨
+  </p>
+
+  <p class="text-gray-700 text-base leading-relaxed mb-3 reveal" style="animation-delay: 0.8s;">
+    Having you as my cousin is one of the best things ever. You're not just family 👑, you're my best friend 😝, my partner in crime 💃🏾, and the one person I can always be my crazy self around 🎀.
+  </p>
+
+  <p class="text-gray-700 text-base leading-relaxed mb-3 reveal" style="animation-delay: 1s;">
+    Thank you for all the laughs 😚, the memories 🫶, and all the moments that make life so much more fun.
+  </p>
+
+  <p class="text-gray-700 text-base leading-relaxed mb-3 reveal" style="animation-delay: 1.2s;">
+    Never forget that you are beautiful, strong, funny, and truly THAT girl 💅✨
+  </p>
+
+  <p class="text-pink-500 font-semibold mt-5 reveal" style="animation-delay: 1.4s;">
+    I LOVE YOU SO MUCH 💗 <br> My Hoteee Hoteee Booo Boooo 😝
+  </p>
+
+  <p class="text-xs text-gray-500 mt-4 reveal" style="animation-delay: 1.6s;">
+    Click anywhere for some love 💖
+  </p>
+
+<div class="mt-20 text-center">
+
+<a href="cake.html"
+class="bg-gradient-to-r from-pink-400 to-pink-600 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-xl hover:scale-110 transition duration-300">
+
+Get readyy get readyyyy 😝😝
+
+</a>
+
+</div>
+
+
+
+</div>
+
+<script>
+// Floating hearts on click
+const letter = document.getElementById('letter-card');
+letter.addEventListener('click', function(e){
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.textContent = '💖';
+  heart.style.left = e.clientX + 'px';
+  heart.style.top = e.clientY + 'px';
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(), 2000);
+});
+
+// Reveal animation for paragraphs
+window.addEventListener('DOMContentLoaded', () => {
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    el.style.animationPlayState = 'running';
+  });
+});
+</script>
+
+</body>
+</html>
