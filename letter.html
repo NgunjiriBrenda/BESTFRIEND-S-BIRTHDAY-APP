@@ -27,6 +27,7 @@
   position:absolute;
   font-size:6vw; /* responsive size */
   animation:floatUp 2s ease forwards;
+  pointer-events: none; /* Don't block clicks */
 }
 
 @keyframes floatUp{
@@ -64,20 +65,79 @@
   animation:glow 3s ease-in-out infinite alternate;
 }
 
-/* Mobile adjustments */
-@media(max-width:768px){
-  .flower { font-size:8vw; }
-  #letter-card {
-    padding: 4vw;
-    max-width:95%;
+/* Enhanced Mobile Responsiveness */
+@media(max-width:640px){
+  .flower { 
+    font-size:10vw; 
   }
-  h1 { font-size:6vw; }
-  p { font-size:4.5vw; line-height:1.5; }
+  
+  #letter-card {
+    padding: 6vw;
+    max-width: 92%;
+    margin: 5vh auto;
+  }
+  
+  h1 { 
+    font-size: 7vw !important;
+    line-height: 1.3;
+    margin-bottom: 4vw;
+  }
+  
+  p { 
+    font-size: 4vw !important;
+    line-height: 1.6;
+    margin-bottom: 3vw;
+  }
+  
+  .button-container {
+    margin-top: 8vw !important;
+  }
+  
+  .button-container a {
+    padding: 4vw 8vw !important;
+    font-size: 4.5vw !important;
+  }
+}
+
+/* Tablet adjustments */
+@media(min-width:641px) and (max-width:1024px){
+  .flower { font-size:6vw; }
+  
+  #letter-card {
+    padding: 5vw;
+    max-width: 85%;
+  }
+  
+  h1 { font-size: 5vw; }
+  p { font-size: 3.5vw; }
+}
+
+/* Landscape mobile fix */
+@media(max-width:896px) and (orientation:landscape){
+  body {
+    padding: 2vh 3vw;
+  }
+  
+  #letter-card {
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 3vh 5vw;
+  }
+  
+  .flower {
+    font-size: 6vw;
+  }
+}
+
+/* Very small screens */
+@media(max-width:375px){
+  h1 { font-size: 8vw !important; }
+  p { font-size: 4.5vw !important; }
 }
 </style>
 </head>
 
-<body class="min-h-screen flex items-center justify-center px-6 overflow-hidden bg-cover bg-center" style="background-image:url('assets/cute-bg.jpg');">
+<body class="min-h-screen flex items-center justify-center px-4 sm:px-6 overflow-hidden bg-cover bg-center" style="background-image:url('assets/cute-bg.jpg');">
 
 <!-- Floating Flowers -->
 <div class="flower top-10 left-10">🌹</div>
@@ -89,52 +149,46 @@
 <div class="flower bottom-10 left-1/3">🌸</div>
 
 <!-- Letter Card -->
-<div id="letter-card" class="bg-pink-200 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-2xl text-center cursor-pointer">
+<div id="letter-card" class="bg-pink-200 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-2xl shadow-2xl text-center cursor-pointer max-w-2xl w-full">
 
-  <h1 class="text-3xl md:text-4xl font-bold text-pink-500 mb-5 reveal" style="animation-delay: 0.2s;">
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-pink-500 mb-4 sm:mb-5 reveal" style="animation-delay: 0.2s;">
     A Letter To The Birthday Queen 💌
   </h1>
 
-  <p class="text-gray-700 text-base leading-relaxed mb-3 font-semibold reveal" style="animation-delay: 0.4s;">
+  <p class="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-3 font-semibold reveal" style="animation-delay: 0.4s;">
     HAPPY BIRTHDAY TO MY BESTFRIEND 😝💗🎀
   </p>
 
-  <p class="text-gray-700 text-base leading-relaxed mb-3 reveal" style="animation-delay: 0.6s;">
+  <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-3 reveal" style="animation-delay: 0.6s;">
     First of all… how are you getting older but still staying this gorgeous?? 😝 Please share the secret because it's honestly not fair 😩✨
   </p>
 
-  <p class="text-gray-700 text-base leading-relaxed mb-3 reveal" style="animation-delay: 0.8s;">
+  <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-3 reveal" style="animation-delay: 0.8s;">
     Having you as my cousin is one of the best things ever. You're not just family 👑, you're my best friend 😝, my partner in crime 💃🏾, and the one person I can always be my crazy self around 🎀.
   </p>
 
-  <p class="text-gray-700 text-base leading-relaxed mb-3 reveal" style="animation-delay: 1s;">
+  <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-3 reveal" style="animation-delay: 1s;">
     Thank you for all the laughs 😚, the memories 🫶, and all the moments that make life so much more fun.
   </p>
 
-  <p class="text-gray-700 text-base leading-relaxed mb-3 reveal" style="animation-delay: 1.2s;">
+  <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-3 reveal" style="animation-delay: 1.2s;">
     Never forget that you are beautiful, strong, funny, and truly THAT girl 💅✨
   </p>
 
-  <p class="text-pink-500 font-semibold mt-5 reveal" style="animation-delay: 1.4s;">
+  <p class="text-pink-500 font-semibold text-sm sm:text-base mt-4 sm:mt-5 reveal" style="animation-delay: 1.4s;">
     I LOVE YOU SO MUCH 💗 <br> My Hoteee Hoteee Booo Boooo 😝
   </p>
 
-  <p class="text-xs text-gray-500 mt-4 reveal" style="animation-delay: 1.6s;">
+  <p class="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4 reveal" style="animation-delay: 1.6s;">
     Click anywhere for some love 💖
   </p>
 
-<div class="mt-20 text-center">
-
-<a href="cake.html"
-class="bg-gradient-to-r from-pink-400 to-pink-600 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-xl hover:scale-110 transition duration-300">
-
-Get readyy get readyyyy 😝😝
-
-</a>
-
-</div>
-
-
+  <div class="button-container mt-10 sm:mt-16 md:mt-20 text-center">
+    <a href="cake.html"
+       class="inline-block bg-gradient-to-r from-pink-400 to-pink-600 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-xl hover:scale-110 active:scale-95 transition duration-300">
+      Get readyy get readyyyy 😝😝
+    </a>
+  </div>
 
 </div>
 
